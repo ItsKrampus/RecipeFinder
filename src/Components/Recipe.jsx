@@ -1,16 +1,13 @@
+import { useLocation } from 'react-router-dom';
 
+export default function Recipe() {
+  let location  = useLocation();
+  
 
-export default function Recipe(){
-
-
-    return(
-        <div>
-            <h1>Hello</h1>
-        </div>
-    )
-
-
-
-
-
+  // Display recipe details
+  return (
+    <div>
+            <h1>{console.log(location.state)}</h1>
+    </div>
+  );
 }

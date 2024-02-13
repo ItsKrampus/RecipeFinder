@@ -6,17 +6,25 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { motion } from 'framer-motion';
 import Recipe from './Recipe';
+import { Link } from 'react-router-dom';
 
 
 
 
-export default function RecipeCard({recipe}) {
+export default function RecipeCard({recipe,onClick}) {
+
+  const onClickWithTimeout=()=>{
+    setTimeout(() => {
+      onClick()
+    }, 250);
+  }
+
   return (
 
     <motion.div whileHover={{scale:1.01}}>
     <Card sx={{ height: '100%' }}>
-      <CardActionArea   href="/Recipe"
- >
+    <CardActionArea  onClick={onClickWithTimeout}
+    >
         <CardMedia
           component="img"
           height="140"

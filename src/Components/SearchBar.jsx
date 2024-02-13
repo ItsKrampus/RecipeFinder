@@ -8,23 +8,27 @@ import { useState } from "react";
 import RecipeCard from './RecipeCard';
 import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
+import { useNavigate } from "react-router-dom";
+
 
 export default function SearchBar() {
   const [query,setQuery]=useState('')
   const [recipes, setRecipes]=useState([])
+  const navigate = useNavigate();
 
 
-
-
-
+  const handleRecipeClick = (recipe) => {
+    console.log(recipe)
+    navigate(`/recipe/${recipe.idMeal}`, { state: { recipe } });
+  }
 
 
 
   const handleSearch = async (query) => {
     try {
       const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
-      setRecipes(response.data.meals); // Update state with fetched recipes
-      console.log(response)
+      setRecipes(response.data.meals); 
+      // console.log(response)
     } catch (error) {
       console.error('Error fetching recipes:', error);
     }
@@ -61,7 +65,7 @@ export default function SearchBar() {
       <Grid container spacing={3}>
           {recipes.map(recipe=>(
             <Grid key={recipe.idMeal} xs={12} sm={6} md={4} lg={3}>
-              <RecipeCard key={recipe.idMeal} recipe={recipe}  />
+              <RecipeCard key={recipe.idMeal} recipe={recipe} onClick={() => handleRecipeClick(recipe)}  />
             </Grid>
            ))}
     </Grid>

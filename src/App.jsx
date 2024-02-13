@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<SearchBar />} />
-          <Route path='/Recipe' element={<Recipe />} />
+          <Route path='/Recipe/:id' element={<Recipe />} />
         </Routes>
       </Router>
     </>
