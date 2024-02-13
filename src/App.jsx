@@ -1,23 +1,19 @@
-import SearchBar from './Components/SearchBar'
-import {  Route, Router, Switch } from 'react-router-dom'
-import './App.css'
-import Recipe from './Components/Recipe'
-
+import SearchBar from './Components/SearchBar';
+import Recipe from './Components/Recipe';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
 
 function App() {
-
-
   return (
     <>
-
-    <Router>
-      <Switch>
-      <Route path='/' exact Component={SearchBar}/>
-      <Route path='/Recipe' Component={Recipe} />
-      </Switch>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path='/' element={<SearchBar />} />
+          <Route path='/Recipe' element={<Recipe />} />
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
