@@ -1,19 +1,21 @@
 import SearchBar from './Components/SearchBar'
-import RecipeCard from './Components/RecipeCard'
-import {  BrowserRouter, Route, Routes } from 'react-router-dom'
+import {  Route, Router, Switch } from 'react-router-dom'
 import './App.css'
+import Recipe from './Components/Recipe'
+
 
 function App() {
 
 
   return (
     <>
-    <SearchBar />
-    {/* <BrowserRouter>
-    <Routes>
-      <Route path=''   element=''   />
-    </Routes>
-    </BrowserRouter> */}
+
+    <Router>
+      <Switch>
+      <Route path='/' exact Component={SearchBar}/>
+      <Route path='/Recipe' Component={Recipe} />
+      </Switch>
+    </Router>
     </>
   )
 }

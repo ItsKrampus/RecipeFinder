@@ -5,25 +5,29 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { motion } from 'framer-motion';
+import Recipe from './Recipe';
+
+
+
 
 export default function RecipeCard({recipe}) {
   return (
 
     <motion.div whileHover={{scale:1.01}}>
-
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card sx={{ height: '100%' }}>
+      <CardActionArea   href="/Recipe"
+ >
         <CardMedia
           component="img"
           height="140"
           image={recipe.strMealThumb}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" >
             {recipe.strMeal}
-          </Typography>
-          <Typography variant="p" color="text.secondary">
-            {recipe.strInstructions.split(' ').slice(0, 30).join(' ')}...
+          </Typography >
+          <Typography variant="body2" color="text.secondary">
+            {recipe.strInstructions.split(' ').slice(0, 20).join(' ')}...
           </Typography>
         </CardContent>
       </CardActionArea>
