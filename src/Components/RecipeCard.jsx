@@ -21,9 +21,9 @@ export default function RecipeCard({recipe,onClick}) {
 
   return (
 
-    <motion.div whileHover={{scale:1.01}}>
-    <Card sx={{ height: '100%' }}>
-    <CardActionArea  onClick={onClickWithTimeout}
+    <motion.div whileHover={{scale:1.02}} style={{display:'flex', flexWrap:1}} >
+    <Card sx={{ height: '300px', width:"95%", padding:"0px" }} raised="true">
+    <CardActionArea style={{flexGrow:1}}  onClick={onClickWithTimeout}
     >
         <CardMedia
           component="img"
@@ -34,8 +34,8 @@ export default function RecipeCard({recipe,onClick}) {
           <Typography gutterBottom variant="h5" component="div" >
             {recipe.strMeal}
           </Typography >
-          <Typography variant="body2" color="text.secondary">
-            {recipe.strInstructions.split(' ').slice(0, 20).join(' ')}...
+          <Typography variant="body2" color="text.secondary" sx={{padding:"23px"}}>
+            {recipe.strInstructions.split(' ').slice(0, 20).join(' ').toLowerCase() }...
           </Typography>
         </CardContent>
       </CardActionArea>
