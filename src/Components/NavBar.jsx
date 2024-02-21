@@ -28,11 +28,7 @@ export default function NavBar() {
             Home
           </Typography>
           </Link>
-          <Link to="/" style={{textDecoration:"none", color:"white"}}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,  ml:"20px"}}>
-            Random
-          </Typography>
-          </Link>
+    
 
         </Toolbar>
       </AppBar>

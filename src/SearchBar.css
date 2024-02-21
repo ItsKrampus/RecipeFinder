@@ -1,0 +1,23 @@
+.textStyle {
+    font-family: Merriweather;
+    font-size: 50px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    background-color: #F0F0F0;
+    padding: 20px;
+  }
+  .imageStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 70vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(https://cdn.pickuplimes.com/cache/07/4d/074d68fe6284ba5090730004d49bb40a.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
