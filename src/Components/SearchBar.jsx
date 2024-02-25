@@ -20,7 +20,7 @@ export default function SearchBar() {
 
   const handleRecipeClick = (recipe) => {
     console.log(recipe);
-    navigate(`/recipe/${recipe.idMeal}`, { state: { recipe } });
+    navigate(`/recipe/${recipe.idMeal}`);
   };
 
   useEffect(() => {
@@ -35,6 +35,11 @@ export default function SearchBar() {
       setRecipes(response.data.meals);
     } catch (error) {
       console.error("Error fetching recipes:", error);
+    }
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch(query);
     }
   };
 
@@ -57,6 +62,7 @@ export default function SearchBar() {
           <OutlinedInput
             id="query"
             onChange={(e) => setQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton onClick={() => handleSearch(query)}>

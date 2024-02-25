@@ -1,11 +1,35 @@
-import { useLocation } from "react-router-dom";
 import { Container, Typography, Grid, Link } from "@mui/material";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import SendIcon from '@mui/icons-material/Send';
 import { motion } from "framer-motion";
+import axios from "axios";
+import { useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
+
+
+const URL="https://www.themealdb.com/api/json/v1/1/lookup.php?i="
+
+
 export default function Recipe() {
-  let location = useLocation();
-  const recipe = location.state.recipe;
+  const { id } = useParams();
+  const [recipe,setRecipe]= useState([])
+
+  async function fetchData() {
+    try {
+      const response = await axios.get(`${URL}${id}`);
+      setRecipe(response.data.meals[0])
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  }
+  
+  useEffect(()=>{
+    fetchData()
+    
+  },[])
+
+
+
+
 
   return (
     
@@ -45,11 +69,11 @@ export default function Recipe() {
             {Object.keys(recipe)
               .filter((key) => key.startsWith("strIngredient") && recipe[key])
               .map((ingredientKey) => (
-                <motion.li whileHover={{scale:1.05}}  
+                <li  
                 key={ingredientKey} style={{color:"#006400"}}>
                   {recipe[ingredientKey]} -{" "}
                   {recipe[`strMeasure${ingredientKey.slice(13)}`]}
-                </motion.li>
+                </li>
               ))}
           </ul>
 
