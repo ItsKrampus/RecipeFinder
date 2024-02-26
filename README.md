@@ -15,5 +15,5 @@ Recipe Finder is a web application that allows users to search for recipes using
 - **Framer Motion:** Animation library for React that adds smooth animations to components.
 - **MealDB API:** API for retrieving recipe data, including ingredients, instructions, and images.
 
-## live demo :
+# live demo :
 https://mealdbrecipeproject.netlify.app/
