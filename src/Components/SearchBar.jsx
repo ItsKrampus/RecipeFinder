@@ -16,6 +16,7 @@ import "../SearchBar.css";
 export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [favorites, setFavorites]= useState([]);
   const navigate = useNavigate();
 
   const handleRecipeClick = (recipe) => {
@@ -58,11 +59,12 @@ export default function SearchBar() {
           color="success"
           variant="outlined"
         >
-          <InputLabel htmlFor="SearchBar">Search for recepies</InputLabel>
+          <InputLabel variant="filled" style={{color:"black"}}  htmlFor="SearchBar">Search for recepies</InputLabel>
           <OutlinedInput
             id="query"
             onChange={(e) => setQuery(e.target.value)}
             onKeyPress={handleKeyPress}
+            
             endAdornment={
               <InputAdornment position="end">
                 <IconButton onClick={() => handleSearch(query)}>
