@@ -4,7 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import RecipeCard from "./RecipeCard";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
@@ -16,7 +16,6 @@ import "../SearchBar.css";
 export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const [favorites, setFavorites]= useState([]);
   const navigate = useNavigate();
 
   const handleRecipeClick = (recipe) => {
@@ -53,11 +52,11 @@ export default function SearchBar() {
           sx={{
             m: 1,
             width: "80%",
-            backgroundColor: "#e0f2f1",
+            backgroundColor: "white",
             borderRadius: "15px",
           }}
           color="success"
-          variant="outlined"
+            variant="outlined"
         >
           <InputLabel variant="filled" style={{color:"black"}}  htmlFor="SearchBar">Search for recepies</InputLabel>
           <OutlinedInput

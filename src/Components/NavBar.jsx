@@ -28,6 +28,12 @@ export default function NavBar() {
             Home
           </Typography>
           </Link>
+  
+          <Link to="/favorites" style={{textDecoration:"none", color:"white"}}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml:2 }}>
+            Favorites
+          </Typography>
+          </Link>
     
 
         </Toolbar>
