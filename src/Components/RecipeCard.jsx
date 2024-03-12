@@ -42,6 +42,13 @@ export default function RecipeCard({ recipe, onClick }) {
             height="140"
             image={recipe.strMealThumb}
           />
+                    <IconButton
+            onClick={(event) => toggleFavorite(event)}
+            color={isFavorite ? "error" : "default"}
+            style={{ position: "absolute", bottom: "5px", right: "3px" }}
+          >
+            <FavoriteIcon />
+          </IconButton>
           <CardContent onClick={onClickWithTimeout}>
             <Typography gutterBottom variant="h5" component="div">
               {recipe.strMeal}
@@ -65,16 +72,11 @@ export default function RecipeCard({ recipe, onClick }) {
                 .toLowerCase()}
               ...
             </Typography>
+            
           </CardContent>
    
         </CardActionArea>
-               <IconButton
-            onClick={(event) => toggleFavorite(event)}
-            color={isFavorite ? "error" : "default"}
-            style={{ position: "absolute", bottom: "5px", right: "3px" }}
-          >
-            <FavoriteIcon />
-          </IconButton>
+     
       </Card>
     </motion.div>
   );

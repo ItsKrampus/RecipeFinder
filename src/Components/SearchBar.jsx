@@ -53,7 +53,7 @@ export default function SearchBar() {
             m: 1,
             width: "80%",
             backgroundColor: "white",
-            borderRadius: "15px",
+            borderRadius: "5px",
           }}
           color="success"
             variant="outlined"
