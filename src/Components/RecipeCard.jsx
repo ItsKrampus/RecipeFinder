@@ -19,8 +19,6 @@ export default function RecipeCard({ recipe, onClick }) {
   };
 
   const toggleFavorite = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
     const updatedFavorites = isFavorite
       ? favorites.filter((id) => id !== recipe.idMeal)
       : [...favorites, recipe.idMeal];
@@ -42,7 +40,7 @@ export default function RecipeCard({ recipe, onClick }) {
             height="140"
             image={recipe.strMealThumb}
           />
-                    <IconButton
+          <IconButton
             onClick={(event) => toggleFavorite(event)}
             color={isFavorite ? "error" : "default"}
             style={{ position: "absolute", bottom: "5px", right: "3px" }}
@@ -72,11 +70,8 @@ export default function RecipeCard({ recipe, onClick }) {
                 .toLowerCase()}
               ...
             </Typography>
-            
           </CardContent>
-   
         </CardActionArea>
-     
       </Card>
     </motion.div>
   );

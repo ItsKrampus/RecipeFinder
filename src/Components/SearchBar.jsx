@@ -19,7 +19,6 @@ export default function SearchBar() {
   const navigate = useNavigate();
 
   const handleRecipeClick = (recipe) => {
-    console.log(recipe);
     navigate(`/recipe/${recipe.idMeal}`);
   };
 
@@ -43,7 +42,7 @@ export default function SearchBar() {
     }
   };
 
-
+console.log(recipes)
 
   return (
     <div style={{ textAlign: "center" }}>
