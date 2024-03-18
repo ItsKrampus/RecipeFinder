@@ -42,7 +42,6 @@ export default function SearchBar() {
     }
   };
 
-console.log(recipes)
 
   return (
     <div style={{ textAlign: "center" }}>
